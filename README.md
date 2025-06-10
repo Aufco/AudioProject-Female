@@ -1,6 +1,6 @@
-# Minecraft Audio Project
+# Minecraft Audio Project - Female Voices
 
-Converts Minecraft translation files to high-quality audio using Google Text-to-Speech, with intelligent voice selection and efficient processing.
+Converts Minecraft translation files to high-quality audio using Google Text-to-Speech, with female voice selection and efficient processing.
 
 ## Overview
 
@@ -49,16 +49,14 @@ languages.json          (in-game ↔ ISO codes)
 - **Handle table structure**: Accounts for multi-row headers and specific column indices (in-game code at index 4, ISO code at index 5)
 
 ### 3. Voice Model Selection Logic
-- **Check existing directories**: Scans for `{language}-*-{gender}-*` folders to avoid regeneration
-- **Priority system**: Premium Female → Premium Male → Standard Female → Standard Male
-- **Gender-aware selection**: Only generates missing genders when some audio already exists
-- **Skip optimization**: Completely skips languages where both male and female voices exist
+- **Check existing directories**: Scans for `{language}-*-female-*` folders to avoid regeneration
+- **Priority system**: Premium Female → Standard Female (female voices only)
+- **Female-only generation**: Only generates female voices for all languages
+- **Skip optimization**: Completely skips languages where female voice already exists
 
 #### Voice Selection Examples:
-- **No existing audio**: Generates female voice (highest priority)
-- **Female exists, male missing**: Generates only male voice
-- **Male exists, female missing**: Generates only female voice  
-- **Both exist**: Skips language entirely
+- **No existing audio**: Generates female voice
+- **Female exists**: Skips language entirely
 
 ## File Structure
 
@@ -131,7 +129,7 @@ When new Minecraft versions are released:
 
 ### Smart Audio Generation
 - **Existing file detection**: Automatically skips regenerating existing audio
-- **Gender-aware processing**: Only generates missing male/female voices
+- **Female-only processing**: Only generates female voices for all languages
 - **Efficient API usage**: Minimizes Google TTS API calls and costs
 
 ### Robust Processing
@@ -149,7 +147,6 @@ When new Minecraft versions are released:
 ### Generated Directories
 - `{language}-{voice}-female-WAV/` - High-quality WAV files
 - `{language}-{voice}-female-OGG/` - Compressed OGG files
-- Similar male directories if both genders are available
 
 ### Archive Structure
 ```
@@ -164,14 +161,14 @@ Archive/{version}/
 ```
 Processing af_za (1/1)
 Generating audio for af_za using af-ZA-Standard-A
-  Existing audio: female=True, male=False
-  Need to generate: male
-  Matched to af-ZA with 1 voice(s): male (af-ZA-Standard-B)
+  Existing audio: female=False
+  Need to generate: female
+  Matched to af-ZA with 1 voice(s): female (af-ZA-Standard-A)
 
-Made block.minecraft.stone.wav | "Klip" | af-ZA-Standard-B-male-WAV
-Made block.minecraft.stone.ogg | "Klip" | af-ZA-Standard-B-male-OGG
-Skipped item.minecraft.apple.wav (exists) | af-ZA-Standard-A-female-WAV
-Skipped item.minecraft.apple.ogg (exists) | af-ZA-Standard-A-female-OGG
+Made block.minecraft.stone.wav | "Klip" | af-ZA-Standard-A-female-WAV
+Made block.minecraft.stone.ogg | "Klip" | af-ZA-Standard-A-female-OGG
+Made item.minecraft.apple.wav | "Appel" | af-ZA-Standard-A-female-WAV
+Made item.minecraft.apple.ogg | "Appel" | af-ZA-Standard-A-female-OGG
 ```
 
 ## Troubleshooting

@@ -105,41 +105,39 @@ def find_matching_google_language(in_game_code, iso_code, google_voices):
 def check_existing_audio_directories(google_language_code):
     """
     Check what audio directories already exist for a Google language code.
+    Only checks for female voices since this project generates female-only audio.
     
     Args:
         google_language_code: Google language code (e.g., 'af-ZA')
         
     Returns:
-        dict: {'female': bool, 'male': bool} indicating which genders exist
+        bool: True if female voice already exists, False otherwise
     """
-    existing_genders = {'female': False, 'male': False}
-    
     try:
-        # Look for directories matching the pattern: {google_language_code}-*-{gender}-*
+        # Look for directories matching the pattern: {google_language_code}-*-female-*
         current_dir = "."
         for item in os.listdir(current_dir):
             if os.path.isdir(item) and item.startswith(google_language_code + "-"):
                 # Parse directory name to extract gender
                 if "-female-" in item:
-                    existing_genders['female'] = True
-                elif "-male-" in item:
-                    existing_genders['male'] = True
+                    return True
     except Exception as e:
         print(f"Warning: Could not check existing directories: {e}")
     
-    return existing_genders
+    return False
 
 def select_voices_for_language(language_code, google_voices, required_genders=None):
     """
-    Select the best voices for a given language following priority rules.
+    Select the best female voice for a given language following priority rules.
+    This project only generates female voices.
     
     Args:
         language_code: Google language code
         google_voices: List of Google voice data
-        required_genders: List of genders to select ['female', 'male'] or None for both
+        required_genders: Ignored - always selects female voice only
         
     Returns:
-        list: List of tuples (voice_name, gender) for selected voices
+        list: List of tuples (voice_name, gender) with single female voice
     """
     # Filter voices for this language
     matching_voices = []
@@ -150,65 +148,30 @@ def select_voices_for_language(language_code, google_voices, required_genders=No
     if not matching_voices:
         return []
     
-    # Categorize voices by type and gender
+    # Categorize female voices by type
     premium_female = []
-    premium_male = []
     standard_female = []
-    standard_male = []
     
     for voice in matching_voices:
         name = voice.get('name', '')
         gender = voice.get('ssml_gender', '')
         
-        is_premium = 'WaveNet' in name or 'Neural2' in name or 'Journey' in name or 'Studio' in name
-        
+        # Only process female voices
         if gender == 'FEMALE':
+            is_premium = 'WaveNet' in name or 'Neural2' in name or 'Journey' in name or 'Studio' in name
+            
             if is_premium:
                 premium_female.append(voice)
             else:
                 standard_female.append(voice)
-        elif gender == 'MALE':
-            if is_premium:
-                premium_male.append(voice)
-            else:
-                standard_male.append(voice)
     
-    # Select voices following priority rules
-    selected_voices = []
-    
-    # Determine which genders to select
-    if required_genders is None:
-        # Select both genders (original behavior)
-        genders_to_select = ['female', 'male']
+    # Select best female voice following priority: Premium Female > Standard Female
+    if premium_female:
+        return [(premium_female[0]['name'], 'female')]
+    elif standard_female:
+        return [(standard_female[0]['name'], 'female')]
     else:
-        # Only select specified genders
-        genders_to_select = required_genders
-    
-    # Priority order: Premium Female, Premium Male, Standard Female, Standard Male
-    voice_categories = [
-        (premium_female, 'female'),
-        (premium_male, 'male'),
-        (standard_female, 'female'),
-        (standard_male, 'male')
-    ]
-    
-    female_selected = False
-    male_selected = False
-    
-    for category, gender in voice_categories:
-        if category and gender in genders_to_select:
-            if gender == 'female' and not female_selected:
-                selected_voices.append((category[0]['name'], 'female'))
-                female_selected = True
-            elif gender == 'male' and not male_selected:
-                selected_voices.append((category[0]['name'], 'male'))
-                male_selected = True
-        
-        # Stop if we have all required genders
-        if ('female' not in genders_to_select or female_selected) and ('male' not in genders_to_select or male_selected):
-            break
-    
-    return selected_voices
+        return []
 
 def match_languages_to_voices(processed_translations_dir, html_table_file, google_voices_file, used_languages=None):
     """
@@ -268,25 +231,18 @@ def match_languages_to_voices(processed_translations_dir, html_table_file, googl
             continue
         
         # Check existing audio directories
-        existing_genders = check_existing_audio_directories(google_lang_code)
-        print(f"  Existing audio: female={existing_genders['female']}, male={existing_genders['male']}")
+        female_exists = check_existing_audio_directories(google_lang_code)
+        print(f"  Existing audio: female={female_exists}")
         
-        # Determine which genders we need to generate
-        required_genders = []
-        if not existing_genders['female']:
-            required_genders.append('female')
-        if not existing_genders['male']:
-            required_genders.append('male')
-        
-        # If both genders already exist, skip this language
-        if not required_genders:
-            print(f"  Both genders already exist for {google_lang_code}, skipping")
+        # If female voice already exists, skip this language
+        if female_exists:
+            print(f"  Female voice already exists for {google_lang_code}, skipping")
             continue
         
-        print(f"  Need to generate: {', '.join(required_genders)}")
+        print(f"  Need to generate: female")
         
-        # Select voices for this language (only missing genders)
-        selected_voices = select_voices_for_language(google_lang_code, google_voices, required_genders)
+        # Select female voice for this language
+        selected_voices = select_voices_for_language(google_lang_code, google_voices, ['female'])
         
         if not selected_voices:
             print(f"  No supported voices found for {google_lang_code} ({', '.join(required_genders)})")
