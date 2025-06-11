@@ -155,7 +155,7 @@ def generate_audio_for_language(translation_file, voice_info, wav_dir, ogg_dir, 
         return stats
     
     # Use first available voice
-    voice_name, gender = voices[0]
+    voice_name, _ = voices[0]
     
     print(f"Generating audio for {voice_info['in_game_code']} using {voice_name}")
     
@@ -211,11 +211,11 @@ def create_audio_directories(voice_info):
     if not voice_info['voices']:
         return None, None
     
-    voice_name, gender = voice_info['voices'][0]
+    voice_name, _ = voice_info['voices'][0]
     
     # Create directory names
-    wav_dir = f"{voice_name}-{gender}-WAV"
-    ogg_dir = f"{voice_name}-{gender}-OGG"
+    wav_dir = f"{voice_name}-female-WAV"
+    ogg_dir = f"{voice_name}-female-OGG"
     
     # Ensure directories exist
     ensure_directory(wav_dir)
