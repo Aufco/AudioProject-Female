@@ -15,8 +15,9 @@ from io_helpers import log_message, ensure_directory
 from preprocess_translations import preprocess_all_translations  
 from voice_selector import match_languages_to_voices
 from audio_generator import generate_audio_for_language, create_audio_directories
-from archive_manager import archive_run_data, get_existing_ogg_directories, create_language_summary
-# Import will be done dynamically when needed
+from bucket_manager import (BucketManager, transfer_existing_audio_to_bucket, 
+                           cleanup_local_directories, create_bucket_file_logs,
+                           transfer_generated_files_to_bucket)
 
 # Configuration
 TRANSLATIONS_ORIGINAL_DIR = "Translations_Original"
@@ -25,6 +26,7 @@ REFERENCE_FILES_DIR = "Reference_Files"
 LOGS_DIR = "Logs"
 LOG_FILE = os.path.join(LOGS_DIR, "log.txt")
 SCRIPTS_DIR = "Scripts"
+BUCKET_NAME = "myproject-461901-bucket"
 
 def check_dependencies():
     """Check if required dependencies are available."""
@@ -189,6 +191,37 @@ def main():
         
         print(f" Matched {len(language_voice_mapping)} languages to voices")
         
+        # Initialize bucket manager
+        print("\nInitializing bucket manager...")
+        log_message(LOG_FILE, "\n=== Initializing Bucket Manager ===")
+        
+        try:
+            bucket_manager = BucketManager(BUCKET_NAME, LOG_FILE)
+            print(f" Connected to bucket: {BUCKET_NAME}")
+            log_message(LOG_FILE, f"Connected to bucket: {BUCKET_NAME}")
+        except Exception as e:
+            print(f"Failed to initialize bucket manager: {e}")
+            log_message(LOG_FILE, f"Failed to initialize bucket manager: {e}")
+            return 1
+        
+        # Step 1: Transfer existing audio files to bucket and cleanup
+        print("\nTransferring existing audio files to bucket...")
+        if transfer_existing_audio_to_bucket(bucket_manager, LOG_FILE):
+            print(" Transfer completed successfully")
+            
+            # Step 2: Delete local directories
+            print("\nCleaning up local audio directories...")
+            if cleanup_local_directories(LOG_FILE):
+                print(" Cleanup completed successfully")
+            else:
+                print("Warning: Some directories could not be cleaned up")
+        else:
+            print("Warning: Transfer failed or no files to transfer")
+        
+        # Step 3: Create bucket file logs for reference
+        print("\nCreating bucket file logs...")
+        create_bucket_file_logs(bucket_manager, LOG_FILE)
+        
         # Generate audio for each language
         print("\nGenerating audio files...")
         log_message(LOG_FILE, "\n=== Starting Audio Generation ===")
@@ -218,14 +251,15 @@ def main():
             
             ogg_directories.append(ogg_dir)
             
-            # Generate audio
+            # Generate audio with bucket checking
             translation_path = os.path.join(TRANSLATIONS_DIR, translation_file)
             stats = generate_audio_for_language(
                 translation_path,
                 voice_info,
                 wav_dir,
                 ogg_dir,
-                LOG_FILE
+                LOG_FILE,
+                bucket_manager=bucket_manager
             )
             
             if stats:
@@ -236,9 +270,6 @@ def main():
                 overall_stats['total_wav_skipped'] += stats['wav_skipped']
                 overall_stats['total_ogg_made'] += stats['ogg_made']
                 overall_stats['total_ogg_skipped'] += stats['ogg_skipped']
-                
-                # Create language summary
-                create_language_summary(stats, ogg_dir)
                 
                 # Print language summary
                 print(f"Language summary for {voice_info['in_game_code']}:")
@@ -251,29 +282,24 @@ def main():
                 log_message(LOG_FILE, f"  WAV made: {stats['wav_made']}, skipped: {stats['wav_skipped']}")
                 log_message(LOG_FILE, f"  OGG made: {stats['ogg_made']}, skipped: {stats['ogg_skipped']}")
                 
+                # Transfer generated files to bucket and cleanup
+                voice_name, _ = voice_info['voices'][0]
+                if transfer_generated_files_to_bucket(bucket_manager, wav_dir, ogg_dir, voice_name, LOG_FILE):
+                    print(f"  Files transferred to bucket and cleaned up")
+                else:
+                    print(f"  Warning: Failed to transfer some files to bucket")
+                
             else:
                 print(f"Failed to process {voice_info['in_game_code']}")
                 failed_languages += 1
         
-        # Archive and cleanup
-        print(f"\nArchiving results...")
-        log_message(LOG_FILE, f"\n=== Starting Archive Process ===")
+        # Final bucket file logs update
+        print(f"\nUpdating bucket file logs...")
+        log_message(LOG_FILE, f"\n=== Updating Final Bucket Logs ===")
         
-        # Get all existing OGG directories (including ones from previous runs)
-        all_ogg_dirs = get_existing_ogg_directories()
+        create_bucket_file_logs(bucket_manager, LOG_FILE)
         
-        archive_dir = archive_run_data(
-            version,
-            TRANSLATIONS_DIR,
-            REFERENCE_FILES_DIR,
-            all_ogg_dirs,
-            LOG_FILE
-        )
         
-        if archive_dir:
-            print(f" Results archived to: {archive_dir}")
-        else:
-            print("Warning: Archiving failed")
         
         # Final summary
         print(f"\n" + "=" * 50)
@@ -283,8 +309,7 @@ def main():
         print(f"Languages failed: {failed_languages}")
         print(f"Total WAV files made: {overall_stats['total_wav_made']}")
         print(f"Total OGG files made: {overall_stats['total_ogg_made']}")
-        if archive_dir:
-            print(f"Archive location: {archive_dir}")
+        print(f"Bucket: {BUCKET_NAME}")
         print(f"=" * 50)
         
         # Log final summary
@@ -294,8 +319,7 @@ def main():
         log_message(LOG_FILE, f"Languages failed: {failed_languages}")
         log_message(LOG_FILE, f"Total WAV files made: {overall_stats['total_wav_made']}")
         log_message(LOG_FILE, f"Total OGG files made: {overall_stats['total_ogg_made']}")
-        if archive_dir:
-            log_message(LOG_FILE, f"Archive location: {archive_dir}")
+        log_message(LOG_FILE, f"Bucket: {BUCKET_NAME}")
         log_message(LOG_FILE, f"Run completed successfully")
         
         return 0
