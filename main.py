@@ -191,6 +191,15 @@ def main():
         
         print(f" Matched {len(language_voice_mapping)} languages to voices")
         
+        # Create language table CSV
+        print("\nCreating language table CSV...")
+        from voice_selector import create_language_table_csv, parse_minecraft_language_table
+        from io_helpers import load_json
+        
+        language_mapping = parse_minecraft_language_table(html_table_file)
+        google_voices = load_json(google_voices_file)
+        create_language_table_csv(language_voice_mapping, language_mapping, google_voices)
+        
         # Initialize bucket manager
         print("\nInitializing bucket manager...")
         log_message(LOG_FILE, "\n=== Initializing Bucket Manager ===")

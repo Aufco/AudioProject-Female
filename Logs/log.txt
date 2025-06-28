@@ -1,153 +1,48 @@
-[2025-06-27 00:13:55] ============================================================
-[2025-06-27 00:13:55] Minecraft Audio Project - Run Started
-[2025-06-27 00:13:55] Version: 1.21.4
-[2025-06-27 00:13:55] Timestamp: 2025-06-27 00:13:55
-[2025-06-27 00:13:55] ============================================================
-[2025-06-27 00:13:56] 
+[2025-06-28 22:15:38] ============================================================
+[2025-06-28 22:15:38] Minecraft Audio Project - Run Started
+[2025-06-28 22:15:38] Version: 1.21.4
+[2025-06-28 22:15:38] Timestamp: 2025-06-28 22:15:38
+[2025-06-28 22:15:38] ============================================================
+[2025-06-28 22:15:38] 
 === Fetching Google Voices ===
-[2025-06-27 00:13:56] Google voices fetched successfully
-[2025-06-27 00:13:56] 
+[2025-06-28 22:15:39] Google voices fetched successfully
+[2025-06-28 22:15:39] 
 === Starting Translation Preprocessing ===
-[2025-06-27 00:13:56] 
+[2025-06-28 22:15:39] 
 === Translation Preprocessing Started ===
-[2025-06-27 00:13:56] Processing 133 translation files
-[2025-06-27 00:13:56] Reference keys: 2747
-[2025-06-27 00:13:57] 
+[2025-06-28 22:15:39] Processing 133 translation files
+[2025-06-28 22:15:39] Reference keys: 2747
+[2025-06-28 22:15:39] 
 Missing keys in vp_vl:
   - item.minecraft.music_disc_creator_music_box
-[2025-06-27 00:13:59] 
+[2025-06-28 22:15:40] 
 Missing keys in az_az:
-  - block.minecraft.potted_open_eyeblossom
   - block.minecraft.stripped_pale_oak_wood
   - block.minecraft.pale_oak_pressure_plate
-[2025-06-27 00:13:59] 
+  - block.minecraft.potted_open_eyeblossom
+[2025-06-28 22:15:40] 
 Missing keys in af_za:
   - block.minecraft.pale_hanging_moss
-[2025-06-27 00:13:59] 
+[2025-06-28 22:15:40] 
 Missing keys in hy_am:
   - item.minecraft.bordure_indented_banner_pattern
-[2025-06-27 00:13:59] 
+[2025-06-28 22:15:40] 
 === Preprocessing Summary ===
-[2025-06-27 00:13:59] Files processed: 133
-[2025-06-27 00:13:59] Files failed: 0
-[2025-06-27 00:13:59] Total entries kept: 365345
-[2025-06-27 00:13:59] Total missing keys: 6
-[2025-06-27 00:13:59] 
+[2025-06-28 22:15:40] Files processed: 133
+[2025-06-28 22:15:40] Files failed: 0
+[2025-06-28 22:15:40] Total entries kept: 365345
+[2025-06-28 22:15:40] Total missing keys: 6
+[2025-06-28 22:15:40] 
 === Matching Languages to Voices ===
-[2025-06-27 00:14:00] 
+[2025-06-28 22:15:40] 
 === Initializing Bucket Manager ===
-[2025-06-27 00:14:00] Connected to bucket: myproject-461901-bucket
-[2025-06-27 00:14:00] 
+[2025-06-28 22:15:40] Connected to bucket: myproject-461901-bucket
+[2025-06-28 22:15:40] 
 === Transferring Existing Audio Files to Bucket ===
-[2025-06-27 00:14:00] Transfer complete: 0 files transferred, 0 failed
-[2025-06-27 00:14:00] 
+[2025-06-28 22:15:40] Transfer complete: 0 files transferred, 0 failed
+[2025-06-28 22:15:40] 
 === Cleaning Up Local Audio Directories ===
-[2025-06-27 00:14:00] Cleanup complete: 0 directories deleted, 0 failed
-[2025-06-27 00:14:00] 
+[2025-06-28 22:15:40] Cleanup complete: 0 directories deleted, 0 failed
+[2025-06-28 22:15:40] 
 === Creating Bucket File Logs ===
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/af-ZA-Standard-A_WAV_files.txt (2746 files)
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/af-ZA-Standard-A_OGG_files.txt (2745 files)
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/bg-BG-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/bg-BG-Standard-B_OGG_files.txt (2748 files)
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/ca-ES-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/ca-ES-Standard-B_OGG_files.txt (2748 files)
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/cs-CZ-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/cs-CZ-Standard-B_OGG_files.txt (2574 files)
-[2025-06-27 00:14:32] Created bucket log: BucketLogs/da-DK-Neural2-F_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/da-DK-Neural2-F_OGG_files.txt (1958 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/de-DE-Neural2-G_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/de-DE-Neural2-G_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/el-GR-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/el-GR-Standard-B_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/en-AU-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/en-AU-Neural2-A_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/en-GB-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/en-GB-Neural2-A_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/es-ES-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/es-ES-Neural2-A_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/eu-ES-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/eu-ES-Standard-B_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/fi-FI-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/fi-FI-Standard-B_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/fil-ph-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/fil-ph-Neural2-A_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/fr-CA-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/fr-CA-Neural2-A_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/fr-FR-Neural2-F_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/fr-FR-Neural2-F_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/gl-ES-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/gl-ES-Standard-B_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/he-IL-Standard-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/he-IL-Standard-A_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/hi-IN-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/hi-IN-Neural2-A_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/hu-HU-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/hu-HU-Standard-B_OGG_files.txt (2746 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/id-ID-Chirp3-HD-Achernar_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/id-ID-Chirp3-HD-Achernar_OGG_files.txt (2735 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/is-IS-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/is-IS-Standard-B_OGG_files.txt (2746 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/it-IT-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/it-IT-Neural2-A_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ja-JP-Neural2-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ja-JP-Neural2-B_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/kn-IN-Chirp3-HD-Achernar_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/kn-IN-Chirp3-HD-Achernar_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ko-KR-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ko-KR-Neural2-A_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ms-MY-Standard-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ms-MY-Standard-A_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/nl-BE-Chirp3-HD-Achernar_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/nl-BE-Chirp3-HD-Achernar_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/nl-NL-Chirp3-HD-Achernar_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/nl-NL-Chirp3-HD-Achernar_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/pl-PL-Chirp3-HD-Achernar_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/pl-PL-Chirp3-HD-Achernar_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/pt-BR-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/pt-BR-Neural2-A_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/pt-PT-Standard-E_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/pt-PT-Standard-E_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ro-RO-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ro-RO-Standard-B_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ru-RU-Chirp3-HD-Aoede_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ru-RU-Chirp3-HD-Aoede_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/sk-SK-Standard-B_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/sk-SK-Standard-B_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/sv-SE-Standard-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/sv-SE-Standard-A_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ta-IN-Chirp3-HD-Achernar_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/ta-IN-Chirp3-HD-Achernar_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/th-TH-Neural2-C_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/th-TH-Neural2-C_OGG_files.txt (2115 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/tr-TR-Chirp3-HD-Achernar_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/tr-TR-Chirp3-HD-Achernar_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/uk-UA-Chirp3-HD-Achernar_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/uk-UA-Chirp3-HD-Achernar_OGG_files.txt (2748 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/vi-VN-Neural2-A_WAV_files.txt (2747 files)
-[2025-06-27 00:14:33] Created bucket log: BucketLogs/vi-VN-Neural2-A_OGG_files.txt (2747 files)
-[2025-06-27 00:14:33] Bucket logging complete: 40 languages processed
-[2025-06-27 00:14:33] 
-=== Starting Audio Generation ===
-[2025-06-27 00:14:33] 
---- Processing en_au ---
-[2025-06-27 00:16:40] Language en_au completed:
-[2025-06-27 00:16:40]   WAV made: 0, skipped: 2747
-[2025-06-27 00:16:40]   OGG made: 0, skipped: 2747
-[2025-06-27 00:16:40] 
-=== Transferring Generated Files to Bucket - en-AU-Neural2-A ===
-[2025-06-27 00:16:40] Deleted local WAV directory: en-AU-Neural2-A-female-WAV
-[2025-06-27 00:16:40] Deleted local OGG directory: en-AU-Neural2-A-female-OGG
-[2025-06-27 00:16:40] Transfer complete for en-AU-Neural2-A: 0 files transferred, 0 failed
-[2025-06-27 00:16:40] 
---- Processing cs_cz ---
-[2025-06-27 00:18:40] Language cs_cz completed:
-[2025-06-27 00:18:40]   WAV made: 0, skipped: 2747
-[2025-06-27 00:18:40]   OGG made: 0, skipped: 2574
-[2025-06-27 00:18:40] 
-=== Transferring Generated Files to Bucket - cs-CZ-Standard-B ===
-[2025-06-27 00:18:40] Deleted local WAV directory: cs-CZ-Standard-B-female-WAV
-[2025-06-27 00:18:40] Deleted local OGG directory: cs-CZ-Standard-B-female-OGG
-[2025-06-27 00:18:40] Transfer complete for cs-CZ-Standard-B: 0 files transferred, 0 failed
-[2025-06-27 00:18:40] 
---- Processing vi_vn ---
-[2025-06-27 00:21:41] Process interrupted by user
+[2025-06-28 22:15:42] Process interrupted by user

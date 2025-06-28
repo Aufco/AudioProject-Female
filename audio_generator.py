@@ -160,6 +160,31 @@ def generate_audio_for_language(translation_file, voice_info, wav_dir, ogg_dir, 
     
     print(f"Generating audio for {voice_info['in_game_code']} using {voice_name}")
     
+    # OPTIMIZATION: Batch check existing files for faster processing
+    existing_wav_files = set()
+    existing_ogg_files = set()
+    bucket_wav_files = set()
+    bucket_ogg_files = set()
+    
+    if skip_existing:
+        # Get existing local files in one batch operation
+        try:
+            with os.scandir(wav_dir) as entries:
+                existing_wav_files = {entry.name for entry in entries if entry.is_file() and entry.name.endswith('.wav')}
+        except (OSError, FileNotFoundError):
+            existing_wav_files = set()
+            
+        try:
+            with os.scandir(ogg_dir) as entries:
+                existing_ogg_files = {entry.name for entry in entries if entry.is_file() and entry.name.endswith('.ogg')}
+        except (OSError, FileNotFoundError):
+            existing_ogg_files = set()
+        
+        # Get existing bucket files in batch (if bucket_manager available)
+        if bucket_manager:
+            from bucket_manager import get_existing_bucket_files
+            bucket_wav_files, bucket_ogg_files = get_existing_bucket_files(bucket_manager, voice_name)
+    
     # Process each translation entry
     for key, text in translation_data.items():
         if not text or not text.strip():
@@ -171,23 +196,17 @@ def generate_audio_for_language(translation_file, voice_info, wav_dir, ogg_dir, 
         wav_path = os.path.join(wav_dir, wav_filename)
         ogg_path = os.path.join(ogg_dir, ogg_filename)
         
-        # Check if files exist in bucket (if bucket_manager is provided)
-        wav_exists_in_bucket = False
-        ogg_exists_in_bucket = False
-        
-        if bucket_manager and skip_existing:
-            from bucket_manager import check_file_exists_in_bucket
-            wav_exists_in_bucket = check_file_exists_in_bucket(bucket_manager, voice_name, "WAV", wav_filename)
-            ogg_exists_in_bucket = check_file_exists_in_bucket(bucket_manager, voice_name, "OGG", ogg_filename)
+        # OPTIMIZED: Use batch-loaded file existence data
+        local_wav_exists = wav_filename in existing_wav_files
+        wav_exists_in_bucket = wav_filename in bucket_wav_files
+        local_ogg_exists = ogg_filename in existing_ogg_files
+        ogg_exists_in_bucket = ogg_filename in bucket_ogg_files
         
         # Generate WAV file
-        local_wav_exists = os.path.exists(wav_path)
         should_skip_wav = skip_existing and (local_wav_exists or wav_exists_in_bucket)
         
         if should_skip_wav:
             stats['wav_skipped'] += 1
-            skip_reason = "local" if local_wav_exists else "bucket"
-            print(f"Skipped {wav_filename} (exists in {skip_reason}) | {os.path.basename(wav_dir)}")
         else:
             if generator.make_wav(voice_name, text, wav_path):
                 stats['wav_made'] += 1
@@ -197,13 +216,10 @@ def generate_audio_for_language(translation_file, voice_info, wav_dir, ogg_dir, 
                 continue
         
         # Convert to OGG
-        local_ogg_exists = os.path.exists(ogg_path)
         should_skip_ogg = skip_existing and (local_ogg_exists or ogg_exists_in_bucket)
         
         if should_skip_ogg:
             stats['ogg_skipped'] += 1
-            skip_reason = "local" if local_ogg_exists else "bucket"
-            print(f"Skipped {ogg_filename} (exists in {skip_reason}) | {os.path.basename(ogg_dir)}")
         else:
             if os.path.exists(wav_path):  # Only convert if WAV exists
                 if generator.wav_to_ogg(wav_path, ogg_path):

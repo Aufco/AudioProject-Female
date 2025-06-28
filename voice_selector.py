@@ -1,5 +1,6 @@
 import re
 import os
+import csv
 from bs4 import BeautifulSoup
 from io_helpers import load_json
 
@@ -227,16 +228,13 @@ def match_languages_to_voices(processed_translations_dir, html_table_file, googl
             print(f"  Language {google_lang_code} already used, skipping")
             continue
         
-        # Check existing audio directories
+        # Check existing audio directories (for info only)
         voice_exists = check_existing_audio_directories(google_lang_code)
         print(f"  Existing audio: voice={voice_exists}")
         
-        # If voice already exists, skip this language
-        if voice_exists:
-            print(f"  Voice already exists for {google_lang_code}, skipping")
-            continue
-        
-        print(f"  Need to generate: voice")
+        # Always process all languages with Google TTS matches to create bucket logs
+        # Audio generation will handle skipping existing files
+        print(f"  Processing language for bucket logs and audio generation")
         
         # Select voice for this language
         selected_voices = select_voices_for_language(google_lang_code, google_voices)
@@ -258,3 +256,127 @@ def match_languages_to_voices(processed_translations_dir, html_table_file, googl
         print(f"  Matched to {google_lang_code} with {len(selected_voices)} voice(s): {voice_info}")
     
     return language_voice_mapping
+
+def create_language_table_csv(language_voice_mapping, language_mapping, google_voices, output_file="language_table.csv"):
+    """
+    Create a CSV file with detailed information about matched languages.
+    
+    Args:
+        language_voice_mapping: Dict from match_languages_to_voices
+        language_mapping: Dict from parse_minecraft_language_table
+        google_voices: List of Google voice data
+        output_file: Output CSV file path
+    """
+    try:
+        # Create voice lookup for detailed info
+        voice_lookup = {}
+        for voice in google_voices:
+            voice_name = voice.get('name', '')
+            voice_lookup[voice_name] = voice
+        
+        # Get language details lookup from HTML table
+        html_file = "Reference_Files/Minecraft_languages_table.html"
+        language_details = parse_minecraft_language_details(html_file)
+        
+        with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = [
+                'Name in the game', 'Language (in English)', 'In-game', 'ISO 639-3',
+                'Language', 'Voice type', 'Language code', 'Voice name', 'Gender'
+            ]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            
+            for filename, voice_info in language_voice_mapping.items():
+                in_game_code = voice_info['in_game_code']
+                google_lang_code = voice_info['google_language_code']
+                iso_code = voice_info['iso_code']
+                
+                # Get language details from HTML - swap name and language to match expected format
+                lang_details = language_details.get(in_game_code, {})
+                name_in_game = lang_details.get('language', '')  # This should be the native name like "Afrikaans (Suid-Afrika)"
+                language_english = lang_details.get('name', '')  # This should be the English name like "Afrikaans"
+                
+                for voice_name, gender in voice_info['voices']:
+                    voice_data = voice_lookup.get(voice_name, {})
+                    
+                    # Determine voice type
+                    voice_type = "Standard"
+                    if 'WaveNet' in voice_name:
+                        voice_type = "WaveNet"
+                    elif 'Neural2' in voice_name:
+                        voice_type = "Neural2"
+                    elif 'Journey' in voice_name:
+                        voice_type = "Journey"
+                    elif 'Studio' in voice_name:
+                        voice_type = "Studio"
+                    
+                    # Create full language name like "Afrikaans (South Africa)"
+                    if google_lang_code == "af-ZA":
+                        language_full = "Afrikaans (South Africa)"
+                    else:
+                        # For other languages, try to build from language_english
+                        language_full = language_english if language_english else google_lang_code
+                    
+                    writer.writerow({
+                        'Name in the game': name_in_game,
+                        'Language (in English)': language_english,
+                        'In-game': in_game_code,
+                        'ISO 639-3': iso_code,
+                        'Language': language_full,
+                        'Voice type': voice_type,
+                        'Language code': google_lang_code,
+                        'Voice name': voice_name,
+                        'Gender': voice_data.get('ssml_gender', 'FEMALE')
+                    })
+        
+        print(f"Created language table CSV: {output_file}")
+        
+    except Exception as e:
+        print(f"Error creating language table CSV: {e}")
+
+def parse_minecraft_language_details(html_file):
+    """
+    Parse detailed language information from the Minecraft HTML table.
+    
+    Args:
+        html_file: Path to the HTML file
+        
+    Returns:
+        dict: Mapping of in-game codes to detailed language info
+    """
+    try:
+        with open(html_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        soup = BeautifulSoup(content, 'html.parser')
+        table = soup.find('table', class_='wikitable')
+        
+        if not table:
+            return {}
+        
+        language_details = {}
+        tbody = table.find('tbody')
+        
+        for row in tbody.find_all('tr'):
+            cells = row.find_all('td')
+            if len(cells) >= 6:
+                # Based on table structure
+                name_idx = 2      # Name (transliteration)
+                language_idx = 3  # Language
+                in_game_idx = 4   # In-game code
+                
+                name = cells[name_idx].get_text().strip()
+                language = cells[language_idx].get_text().strip()
+                in_game_code = cells[in_game_idx].get_text().strip()
+                
+                if in_game_code and in_game_code != '–':
+                    language_details[in_game_code] = {
+                        'name': name,
+                        'language': language
+                    }
+        
+        return language_details
+        
+    except Exception as e:
+        print(f"Error parsing language details: {e}")
+        return {}

@@ -1,0 +1,41 @@
+Name in the game,Language (in English),In-game,ISO 639-3,Language,Voice type,Language code,Voice name,Gender
+Australian English,English (Australia),en_au,eng_AU,English (Australia),Neural2,en-AU,en-AU-Neural2-A,FEMALE
+Czech,Čeština (Česko),cs_cz,ces_CZ,Čeština (Česko),Standard,cs-CZ,cs-CZ-Standard-B,FEMALE
+Vietnamese,Tiếng Việt (Việt Nam),vi_vn,vie_VN,Tiếng Việt (Việt Nam),Neural2,vi-VN,vi-VN-Neural2-A,FEMALE
+"Dutch, Flemish",Vlaams (Vlaanderen),nl_be,nld_BE,Vlaams (Vlaanderen),Standard,nl-BE,nl-BE-Chirp3-HD-Achernar,FEMALE
+European Spanish,Español (España),es_es,spa_ES,Español (España),Neural2,es-ES,es-ES-Neural2-A,FEMALE
+Russian,Русский (Russkiy),ru_ru,rus_RU,Русский (Russkiy),Standard,ru-RU,ru-RU-Chirp3-HD-Aoede,FEMALE
+Basque,Euskara (Euskal Herria),eu_es,eus_ES,Euskara (Euskal Herria),Standard,eu-ES,eu-ES-Standard-B,FEMALE
+Kannada,ಕನ್ನಡ (Kannađa),kn_in,kan_IN,ಕನ್ನಡ (Kannađa),Standard,kn-IN,kn-IN-Chirp3-HD-Achernar,FEMALE
+Thai,ไทย (thay),th_th,tha_TH,ไทย (thay),Neural2,th-TH,th-TH-Neural2-C,FEMALE
+Danish,Dansk (Danmark),da_dk,dan_DK,Dansk (Danmark),Neural2,da-DK,da-DK-Neural2-F,FEMALE
+Brazilian Portuguese,Português (Brasil),pt_br,por_BR,Português (Brasil),Neural2,pt-BR,pt-BR-Neural2-A,FEMALE
+European French,Français (France),fr_fr,fra_FR,Français (France),Neural2,fr-FR,fr-FR-Neural2-F,FEMALE
+Korean,한국어 (Hangugeo),ko_kr,kor_KR,한국어 (Hangugeo),Neural2,ko-KR,ko-KR-Neural2-A,FEMALE
+Italian,Italiano (Italia),it_it,ita_IT,Italiano (Italia),Neural2,it-IT,it-IT-Neural2-A,FEMALE
+Tamil,தமிழ் (Tamił),ta_in,tam_IN,தமிழ் (Tamił),Standard,ta-IN,ta-IN-Chirp3-HD-Achernar,FEMALE
+Malay,Bahasa Melayu (Malaysia),ms_my,zlm_MY,Bahasa Melayu (Malaysia),Standard,ms-MY,ms-MY-Standard-A,FEMALE
+Finnish,Suomi (Suomi),fi_fi,fin_FI,Suomi (Suomi),Standard,fi-FI,fi-FI-Standard-B,FEMALE
+Catalan,Català (Catalunya),ca_es,cat_ES,Català (Catalunya),Standard,ca-ES,ca-ES-Standard-B,FEMALE
+Turkish,Türkçe (Türkiye),tr_tr,tur_TR,Türkçe (Türkiye),Standard,tr-TR,tr-TR-Chirp3-HD-Achernar,FEMALE
+Canadian French,Français (Québec),fr_ca,fra_CA,Français (Québec),Neural2,fr-CA,fr-CA-Neural2-A,FEMALE
+Hindi,हिन्दी (Hindī),hi_in,hin_IN,हिन्दी (Hindī),Neural2,hi-IN,hi-IN-Neural2-A,FEMALE
+Greek,Ελληνικά (Ελλάδα),el_gr,ell_GR,Ελληνικά (Ελλάδα),Standard,el-GR,el-GR-Standard-B,FEMALE
+Hungarian,Magyar (Magyarország),hu_hu,hun_HU,Magyar (Magyarország),Standard,hu-HU,hu-HU-Standard-B,FEMALE
+Slovak,Slovenčina (Slovensko),sk_sk,slk_SK,Slovenčina (Slovensko),Standard,sk-SK,sk-SK-Standard-B,FEMALE
+Indonesian,Bahasa Indonesia (Indonesia),id_id,ind_ID,Bahasa Indonesia (Indonesia),Standard,id-ID,id-ID-Chirp3-HD-Achernar,FEMALE
+Polish,Polski (Polska),pl_pl,pol_PL,Polski (Polska),Standard,pl-PL,pl-PL-Chirp3-HD-Achernar,FEMALE
+Japanese,日本語 (Nihongo),ja_jp,jpn_JP,日本語 (Nihongo),Neural2,ja-JP,ja-JP-Neural2-B,FEMALE
+Bulgarian,Български (България),bg_bg,bul_BG,Български (България),Standard,bg-BG,bg-BG-Standard-B,FEMALE
+European Portuguese,Português (Portugal),pt_pt,por_PT,Português (Portugal),Standard,pt-PT,pt-PT-Standard-E,FEMALE
+Icelandic,Íslenska (Ísland),is_is,isl_IS,Íslenska (Ísland),Standard,is-IS,is-IS-Standard-B,FEMALE
+Galician,Galego (Galicia),gl_es,glg_ES,Galego (Galicia),Standard,gl-ES,gl-ES-Standard-B,FEMALE
+Romanian,Română (România),ro_ro,ron_RO,Română (România),Standard,ro-RO,ro-RO-Standard-B,FEMALE
+Dutch,Nederlands (Nederland),nl_nl,nld_NL,Nederlands (Nederland),Standard,nl-NL,nl-NL-Chirp3-HD-Achernar,FEMALE
+British English,English (United Kingdom),en_gb,eng_GB,English (United Kingdom),Neural2,en-GB,en-GB-Neural2-A,FEMALE
+Ukrainian,Українська (Ukrayins'ka),uk_ua,ukr_UA,Українська (Ukrayins'ka),Standard,uk-UA,uk-UA-Chirp3-HD-Achernar,FEMALE
+Afrikaans (Suid-Afrika),Afrikaans,af_za,afr_ZA,Afrikaans (South Africa),Standard,af-ZA,af-ZA-Standard-A,FEMALE
+Hebrew,עברית ('Ivriyþ),he_il,heb_IL,עברית ('Ivriyþ),Standard,he-IL,he-IL-Standard-A,FEMALE
+Filipino,Filipino (Filipinas),fil_ph,fil_PH,Filipino (Filipinas),Neural2,fil-PH,fil-ph-Neural2-A,FEMALE
+Swedish,Svenska (Sverige),sv_se,swe_SE,Svenska (Sverige),Standard,sv-SE,sv-SE-Standard-A,FEMALE
+German,Deutsch,de_de,deu_DE,Deutsch,Neural2,de-DE,de-DE-Neural2-G,FEMALE

@@ -272,6 +272,42 @@ def check_file_exists_in_bucket(bucket_manager, voice_name, format_type, filenam
         print(f"Error checking file existence in bucket: {e}")
         return False
 
+def get_existing_bucket_files(bucket_manager, voice_name):
+    """
+    OPTIMIZED: Get all existing WAV and OGG files from bucket in batch operations.
+    
+    Args:
+        bucket_manager: BucketManager instance
+        voice_name: Voice name (e.g., af-ZA-Standard-A)
+        
+    Returns:
+        tuple: (set of WAV filenames, set of OGG filenames)
+    """
+    wav_files = set()
+    ogg_files = set()
+    
+    try:
+        # Batch fetch WAV files
+        wav_prefix = f"AudioProject-Female/{voice_name}-female-WAV/"
+        wav_blobs = bucket_manager.bucket.list_blobs(prefix=wav_prefix)
+        for blob in wav_blobs:
+            filename = blob.name.split('/')[-1]
+            if filename.endswith('.wav'):
+                wav_files.add(filename)
+        
+        # Batch fetch OGG files
+        ogg_prefix = f"AudioProject-Female/{voice_name}-female-OGG/"
+        ogg_blobs = bucket_manager.bucket.list_blobs(prefix=ogg_prefix)
+        for blob in ogg_blobs:
+            filename = blob.name.split('/')[-1]
+            if filename.endswith('.ogg'):
+                ogg_files.add(filename)
+                
+    except Exception as e:
+        print(f"Error batch checking bucket files: {e}")
+        
+    return wav_files, ogg_files
+
 def transfer_generated_files_to_bucket(bucket_manager, wav_dir, ogg_dir, voice_name, log_file):
     """
     Transfer newly generated WAV and OGG files to bucket and clean up local directories.
@@ -296,16 +332,20 @@ def transfer_generated_files_to_bucket(bucket_manager, wav_dir, ogg_dir, voice_n
         
         # Transfer WAV files
         if os.path.exists(wav_dir):
-            for file in os.listdir(wav_dir):
-                if file.endswith('.wav'):
-                    local_path = os.path.join(wav_dir, file)
-                    bucket_path = f"AudioProject-Female/{voice_name}-female-WAV/{file}"
-                    
-                    if bucket_manager.upload_file(local_path, bucket_path):
-                        transferred_count += 1
-                        log_message(log_file, f"Transferred WAV: {file}")
-                    else:
-                        failed_count += 1
+            with os.scandir(wav_dir) as entries:
+                for entry in entries:
+                    if not entry.is_file():
+                        continue
+                    file = entry.name
+                    if file.endswith('.wav'):
+                        local_path = os.path.join(wav_dir, file)
+                        bucket_path = f"AudioProject-Female/{voice_name}-female-WAV/{file}"
+                        
+                        if bucket_manager.upload_file(local_path, bucket_path):
+                            transferred_count += 1
+                            log_message(log_file, f"Transferred WAV: {file}")
+                        else:
+                            failed_count += 1
             
             # Delete WAV directory
             shutil.rmtree(wav_dir)
@@ -313,18 +353,22 @@ def transfer_generated_files_to_bucket(bucket_manager, wav_dir, ogg_dir, voice_n
         
         # Transfer OGG files (excluding summary.txt)
         if os.path.exists(ogg_dir):
-            for file in os.listdir(ogg_dir):
-                if file.endswith('.ogg'):
-                    local_path = os.path.join(ogg_dir, file)
-                    bucket_path = f"AudioProject-Female/{voice_name}-female-OGG/{file}"
-                    
-                    if bucket_manager.upload_file(local_path, bucket_path):
-                        transferred_count += 1
-                        log_message(log_file, f"Transferred OGG: {file}")
-                    else:
-                        failed_count += 1
-                elif file == "summary.txt":
-                    log_message(log_file, f"Skipping summary.txt during transfer")
+            with os.scandir(ogg_dir) as entries:
+                for entry in entries:
+                    if not entry.is_file():
+                        continue
+                    file = entry.name
+                    if file.endswith('.ogg'):
+                        local_path = os.path.join(ogg_dir, file)
+                        bucket_path = f"AudioProject-Female/{voice_name}-female-OGG/{file}"
+                        
+                        if bucket_manager.upload_file(local_path, bucket_path):
+                            transferred_count += 1
+                            log_message(log_file, f"Transferred OGG: {file}")
+                        else:
+                            failed_count += 1
+                    elif file == "summary.txt":
+                        log_message(log_file, f"Skipping summary.txt during transfer")
             
             # Delete OGG directory
             shutil.rmtree(ogg_dir)
