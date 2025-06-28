@@ -1,79 +1,11 @@
-# Python
+# Python cache
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
-# Virtual environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Logs
-Logs/
+# Logs and temporary files
 *.log
-
-# Audio files - these can be large and are generated
-*.ogg
-*.wav
-*-WAV/
-*-OGG/
-
-# Archive directories - contains generated content
-Archive/
-
-# Translations - processed files can be regenerated
-Translations/
-
-# Temporary files
 *.tmp
-*.temp
-debug_page.html
-test_*.py
-test_*.log
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Backup files
-*.backup.*
 *.bak
 
-# Google Cloud credentials (if stored locally)
-*.json
-!Reference_Files/*.json
-!*_processed.json
+# Folders with audio data
+*OGG*/
+*WAV*/
