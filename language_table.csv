@@ -28,6 +28,7 @@ Polish,Polski (Polska),pl_pl,pol_PL,Polski (Polska),Standard,pl-PL,pl-PL-Chirp3-
 Japanese,日本語 (Nihongo),ja_jp,jpn_JP,日本語 (Nihongo),Neural2,ja-JP,ja-JP-Neural2-B,FEMALE
 Bulgarian,Български (България),bg_bg,bul_BG,Български (България),Standard,bg-BG,bg-BG-Standard-B,FEMALE
 European Portuguese,Português (Portugal),pt_pt,por_PT,Português (Portugal),Standard,pt-PT,pt-PT-Standard-E,FEMALE
+American English,English (US),en_us,eng_US,English (US),Neural2,en-US,en-US-Neural2-C,FEMALE
 Icelandic,Íslenska (Ísland),is_is,isl_IS,Íslenska (Ísland),Standard,is-IS,is-IS-Standard-B,FEMALE
 Galician,Galego (Galicia),gl_es,glg_ES,Galego (Galicia),Standard,gl-ES,gl-ES-Standard-B,FEMALE
 Romanian,Română (România),ro_ro,ron_RO,Română (România),Standard,ro-RO,ro-RO-Standard-B,FEMALE
