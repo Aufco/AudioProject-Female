@@ -147,8 +147,7 @@ def select_voices_for_language(language_code, google_voices):
         return []
     
     # Categorize voices by type
-    premium_voices = []
-    standard_voices = []
+    female_voices = []
     
     for voice in matching_voices:
         name = voice.get('name', '')
@@ -156,20 +155,29 @@ def select_voices_for_language(language_code, google_voices):
         
         # Only process female voices
         if gender == 'FEMALE':
-            is_premium = 'WaveNet' in name or 'Neural2' in name or 'Journey' in name or 'Studio' in name
-            
-            if is_premium:
-                premium_voices.append(voice)
-            else:
-                standard_voices.append(voice)
+            female_voices.append(voice)
     
-    # Select best voice following priority: Premium > Standard
-    if premium_voices:
-        return [(premium_voices[0]['name'], 'female')]
-    elif standard_voices:
-        return [(standard_voices[0]['name'], 'female')]
-    else:
+    if not female_voices:
         return []
+    
+    # Sort by priority: Chirp3-HD > Chirp-HD > Neural2 > WaveNet > Standard
+    def get_voice_priority(voice):
+        name = voice.get('name', '')
+        if 'Chirp3-HD' in name:
+            return 1
+        elif 'Chirp-HD' in name:
+            return 2
+        elif 'Neural2' in name:
+            return 3
+        elif 'WaveNet' in name:
+            return 4
+        else:
+            return 5  # Standard voices
+    
+    female_voices.sort(key=get_voice_priority)
+    
+    # Return the highest priority voice
+    return [(female_voices[0]['name'], 'female')]
 
 def match_languages_to_voices(processed_translations_dir, html_table_file, google_voices_file, used_languages=None):
     """
@@ -301,14 +309,14 @@ def create_language_table_csv(language_voice_mapping, language_mapping, google_v
                     
                     # Determine voice type
                     voice_type = "Standard"
-                    if 'WaveNet' in voice_name:
-                        voice_type = "WaveNet"
+                    if 'Chirp3-HD' in voice_name:
+                        voice_type = "Chirp3-HD"
+                    elif 'Chirp-HD' in voice_name:
+                        voice_type = "Chirp-HD"
                     elif 'Neural2' in voice_name:
                         voice_type = "Neural2"
-                    elif 'Journey' in voice_name:
-                        voice_type = "Journey"
-                    elif 'Studio' in voice_name:
-                        voice_type = "Studio"
+                    elif 'WaveNet' in voice_name:
+                        voice_type = "WaveNet"
                     
                     # Create full language name like "Afrikaans (South Africa)"
                     if google_lang_code == "af-ZA":
