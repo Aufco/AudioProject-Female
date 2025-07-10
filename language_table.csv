@@ -1,43 +1,43 @@
-Name in the game,Language (in English),In-game,ISO 639-3,Language,Voice type,Language code,Voice name,Gender
-Australian English,English (Australia),en_au,eng_AU,English (Australia),Chirp3-HD,en-AU,en-AU-Chirp3-HD-Achernar,FEMALE
-Czech,Čeština (Česko),cs_cz,ces_CZ,Čeština (Česko),Standard,cs-CZ,cs-CZ-Standard-B,FEMALE
-Vietnamese,Tiếng Việt (Việt Nam),vi_vn,vie_VN,Tiếng Việt (Việt Nam),Chirp3-HD,vi-VN,vi-VN-Chirp3-HD-Achernar,FEMALE
-"Dutch, Flemish",Vlaams (Vlaanderen),nl_be,nld_BE,Vlaams (Vlaanderen),Chirp3-HD,nl-BE,nl-BE-Chirp3-HD-Achernar,FEMALE
-European Spanish,Español (España),es_es,spa_ES,Español (España),Chirp3-HD,es-ES,es-ES-Chirp3-HD-Achernar,FEMALE
-Russian,Русский (Russkiy),ru_ru,rus_RU,Русский (Russkiy),Chirp3-HD,ru-RU,ru-RU-Chirp3-HD-Aoede,FEMALE
-Basque,Euskara (Euskal Herria),eu_es,eus_ES,Euskara (Euskal Herria),Standard,eu-ES,eu-ES-Standard-B,FEMALE
-Kannada,ಕನ್ನಡ (Kannađa),kn_in,kan_IN,ಕನ್ನಡ (Kannađa),Chirp3-HD,kn-IN,kn-IN-Chirp3-HD-Achernar,FEMALE
-Thai,ไทย (thay),th_th,tha_TH,ไทย (thay),Chirp3-HD,th-TH,th-TH-Chirp3-HD-Achernar,FEMALE
-Danish,Dansk (Danmark),da_dk,dan_DK,Dansk (Danmark),Neural2,da-DK,da-DK-Neural2-F,FEMALE
-Brazilian Portuguese,Português (Brasil),pt_br,por_BR,Português (Brasil),Chirp3-HD,pt-BR,pt-BR-Chirp3-HD-Achernar,FEMALE
-European French,Français (France),fr_fr,fra_FR,Français (France),Chirp3-HD,fr-FR,fr-FR-Chirp3-HD-Achernar,FEMALE
-Korean,한국어 (Hangugeo),ko_kr,kor_KR,한국어 (Hangugeo),Chirp3-HD,ko-KR,ko-KR-Chirp3-HD-Achernar,FEMALE
-Italian,Italiano (Italia),it_it,ita_IT,Italiano (Italia),Chirp3-HD,it-IT,it-IT-Chirp3-HD-Achernar,FEMALE
-Tamil,தமிழ் (Tamił),ta_in,tam_IN,தமிழ் (Tamił),Chirp3-HD,ta-IN,ta-IN-Chirp3-HD-Achernar,FEMALE
-Malay,Bahasa Melayu (Malaysia),ms_my,zlm_MY,Bahasa Melayu (Malaysia),Standard,ms-MY,ms-MY-Standard-A,FEMALE
-Finnish,Suomi (Suomi),fi_fi,fin_FI,Suomi (Suomi),Standard,fi-FI,fi-FI-Standard-B,FEMALE
-Catalan,Català (Catalunya),ca_es,cat_ES,Català (Catalunya),Standard,ca-ES,ca-ES-Standard-B,FEMALE
-Turkish,Türkçe (Türkiye),tr_tr,tur_TR,Türkçe (Türkiye),Chirp3-HD,tr-TR,tr-TR-Chirp3-HD-Achernar,FEMALE
-Canadian French,Français (Québec),fr_ca,fra_CA,Français (Québec),Chirp3-HD,fr-CA,fr-CA-Chirp3-HD-Achernar,FEMALE
-Hindi,हिन्दी (Hindī),hi_in,hin_IN,हिन्दी (Hindī),Chirp3-HD,hi-IN,hi-IN-Chirp3-HD-Achernar,FEMALE
-Greek,Ελληνικά (Ελλάδα),el_gr,ell_GR,Ελληνικά (Ελλάδα),Standard,el-GR,el-GR-Standard-B,FEMALE
-Hungarian,Magyar (Magyarország),hu_hu,hun_HU,Magyar (Magyarország),Standard,hu-HU,hu-HU-Standard-B,FEMALE
-Slovak,Slovenčina (Slovensko),sk_sk,slk_SK,Slovenčina (Slovensko),Standard,sk-SK,sk-SK-Standard-B,FEMALE
-Indonesian,Bahasa Indonesia (Indonesia),id_id,ind_ID,Bahasa Indonesia (Indonesia),Chirp3-HD,id-ID,id-ID-Chirp3-HD-Achernar,FEMALE
-Polish,Polski (Polska),pl_pl,pol_PL,Polski (Polska),Chirp3-HD,pl-PL,pl-PL-Chirp3-HD-Achernar,FEMALE
-Japanese,日本語 (Nihongo),ja_jp,jpn_JP,日本語 (Nihongo),Chirp3-HD,ja-JP,ja-JP-Chirp3-HD-Achernar,FEMALE
-Bulgarian,Български (България),bg_bg,bul_BG,Български (България),Standard,bg-BG,bg-BG-Standard-B,FEMALE
-European Portuguese,Português (Portugal),pt_pt,por_PT,Português (Portugal),Standard,pt-PT,pt-PT-Standard-E,FEMALE
-American English,English (US),en_us,eng_US,English (US),Chirp3-HD,en-US,en-US-Chirp3-HD-Achernar,FEMALE
-Icelandic,Íslenska (Ísland),is_is,isl_IS,Íslenska (Ísland),Standard,is-IS,is-IS-Standard-B,FEMALE
-Galician,Galego (Galicia),gl_es,glg_ES,Galego (Galicia),Standard,gl-ES,gl-ES-Standard-B,FEMALE
-Romanian,Română (România),ro_ro,ron_RO,Română (România),Standard,ro-RO,ro-RO-Standard-B,FEMALE
-American Spanish,Español (Estados Unidos),es_us,spa_US,Español (Estados Unidos),Chirp3-HD,es-US,es-US-Chirp3-HD-Achernar,FEMALE
-Dutch,Nederlands (Nederland),nl_nl,nld_NL,Nederlands (Nederland),Chirp3-HD,nl-NL,nl-NL-Chirp3-HD-Achernar,FEMALE
-British English,English (United Kingdom),en_gb,eng_GB,English (United Kingdom),Chirp3-HD,en-GB,en-GB-Chirp3-HD-Achernar,FEMALE
-Ukrainian,Українська (Ukrayins'ka),uk_ua,ukr_UA,Українська (Ukrayins'ka),Chirp3-HD,uk-UA,uk-UA-Chirp3-HD-Achernar,FEMALE
-Afrikaans (Suid-Afrika),Afrikaans,af_za,afr_ZA,Afrikaans (South Africa),Standard,af-ZA,af-ZA-Standard-A,FEMALE
-Hebrew,עברית ('Ivriyþ),he_il,heb_IL,עברית ('Ivriyþ),Standard,he-IL,he-IL-Standard-A,FEMALE
-Filipino,Filipino (Filipinas),fil_ph,fil_PH,Filipino (Filipinas),Neural2,fil-PH,fil-ph-Neural2-A,FEMALE
-Swedish,Svenska (Sverige),sv_se,swe_SE,Svenska (Sverige),Standard,sv-SE,sv-SE-Standard-A,FEMALE
-German,Deutsch,de_de,deu_DE,Deutsch,Chirp3-HD,de-DE,de-DE-Chirp3-HD-Achernar,FEMALE
+In-game,Name (transliteration),Language,ISO 639-3,Voice name,Female
+en_au,English (Australia),Australian English,eng_AU,en-AU-Chirp3-HD-Achernar,True
+cs_cz,Čeština (Česko),Czech,ces_CZ,cs-CZ-Standard-B,True
+vi_vn,Tiếng Việt (Việt Nam),Vietnamese,vie_VN,vi-VN-Chirp3-HD-Achernar,True
+nl_be,Vlaams (Vlaanderen),"Dutch, Flemish",nld_BE,nl-BE-Chirp3-HD-Achernar,True
+es_es,Español (España),European Spanish,spa_ES,es-ES-Chirp3-HD-Achernar,True
+ru_ru,Русский (Russkiy),Russian,rus_RU,ru-RU-Chirp3-HD-Aoede,True
+eu_es,Euskara (Euskal Herria),Basque,eus_ES,eu-ES-Standard-B,True
+kn_in,ಕನ್ನಡ (Kannađa),Kannada,kan_IN,kn-IN-Chirp3-HD-Achernar,True
+th_th,ไทย (thay),Thai,tha_TH,th-TH-Chirp3-HD-Achernar,True
+da_dk,Dansk (Danmark),Danish,dan_DK,da-DK-Neural2-F,True
+pt_br,Português (Brasil),Brazilian Portuguese,por_BR,pt-BR-Chirp3-HD-Achernar,True
+fr_fr,Français (France),European French,fra_FR,fr-FR-Chirp3-HD-Achernar,True
+ko_kr,한국어 (Hangugeo),Korean,kor_KR,ko-KR-Chirp3-HD-Achernar,True
+it_it,Italiano (Italia),Italian,ita_IT,it-IT-Chirp3-HD-Achernar,True
+ta_in,தமிழ் (Tamił),Tamil,tam_IN,ta-IN-Chirp3-HD-Achernar,True
+ms_my,Bahasa Melayu (Malaysia),Malay,zlm_MY,ms-MY-Standard-A,True
+fi_fi,Suomi (Suomi),Finnish,fin_FI,fi-FI-Standard-B,True
+ca_es,Català (Catalunya),Catalan,cat_ES,ca-ES-Standard-B,True
+tr_tr,Türkçe (Türkiye),Turkish,tur_TR,tr-TR-Chirp3-HD-Achernar,True
+fr_ca,Français (Québec),Canadian French,fra_CA,fr-CA-Chirp3-HD-Achernar,True
+hi_in,हिन्दी (Hindī),Hindi,hin_IN,hi-IN-Chirp3-HD-Achernar,True
+el_gr,Ελληνικά (Ελλάδα),Greek,ell_GR,el-GR-Standard-B,True
+hu_hu,Magyar (Magyarország),Hungarian,hun_HU,hu-HU-Standard-B,True
+sk_sk,Slovenčina (Slovensko),Slovak,slk_SK,sk-SK-Standard-B,True
+id_id,Bahasa Indonesia (Indonesia),Indonesian,ind_ID,id-ID-Chirp3-HD-Achernar,True
+pl_pl,Polski (Polska),Polish,pol_PL,pl-PL-Chirp3-HD-Achernar,True
+ja_jp,日本語 (Nihongo),Japanese,jpn_JP,ja-JP-Chirp3-HD-Achernar,True
+bg_bg,Български (България),Bulgarian,bul_BG,bg-BG-Standard-B,True
+pt_pt,Português (Portugal),European Portuguese,por_PT,pt-PT-Standard-E,True
+en_us,English (US),American English,eng_US,en-US-Chirp3-HD-Achernar,True
+is_is,Íslenska (Ísland),Icelandic,isl_IS,is-IS-Standard-B,True
+gl_es,Galego (Galicia),Galician,glg_ES,gl-ES-Standard-B,True
+ro_ro,Română (România),Romanian,ron_RO,ro-RO-Standard-B,True
+es_us,Español (Estados Unidos),American Spanish,spa_US,es-US-Chirp3-HD-Achernar,True
+nl_nl,Nederlands (Nederland),Dutch,nld_NL,nl-NL-Chirp3-HD-Achernar,True
+en_gb,English (United Kingdom),British English,eng_GB,en-GB-Chirp3-HD-Achernar,True
+uk_ua,Українська (Ukrayins'ka),Ukrainian,ukr_UA,uk-UA-Chirp3-HD-Achernar,True
+af_za,Afrikaans,Afrikaans (Suid-Afrika),afr_ZA,af-ZA-Standard-A,True
+he_il,עברית ('Ivriyþ),Hebrew,heb_IL,he-IL-Standard-A,True
+fil_ph,Filipino (Filipinas),Filipino,fil_PH,fil-ph-Neural2-A,True
+sv_se,Svenska (Sverige),Swedish,swe_SE,sv-SE-Standard-A,True
+de_de,Deutsch,German,deu_DE,de-DE-Chirp3-HD-Achernar,True

@@ -5600,7 +5600,7 @@
     "natural_sample_rate_hertz": 24000
   },
   {
-    "name": "hu-HU-Wavenet-A",
+    "name": "hu-HU-Wavenet-B",
     "language_codes": [
       "hu-HU"
     ],
@@ -7944,6 +7944,14 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "nl-BE-Chirp3-HD-Aoede",
+    "language_codes": [
+      "nl-BE"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "nl-BE-Chirp3-HD-Autonoe",
     "language_codes": [
       "nl-BE"
@@ -7984,6 +7992,14 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "nl-BE-Chirp3-HD-Fenrir",
+    "language_codes": [
+      "nl-BE"
+    ],
+    "ssml_gender": "MALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "nl-BE-Chirp3-HD-Gacrux",
     "language_codes": [
       "nl-BE"
@@ -8000,11 +8016,43 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "nl-BE-Chirp3-HD-Kore",
+    "language_codes": [
+      "nl-BE"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "nl-BE-Chirp3-HD-Laomedeia",
     "language_codes": [
       "nl-BE"
     ],
     "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "nl-BE-Chirp3-HD-Leda",
+    "language_codes": [
+      "nl-BE"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "nl-BE-Chirp3-HD-Orus",
+    "language_codes": [
+      "nl-BE"
+    ],
+    "ssml_gender": "MALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "nl-BE-Chirp3-HD-Puck",
+    "language_codes": [
+      "nl-BE"
+    ],
+    "ssml_gender": "MALE",
     "natural_sample_rate_hertz": 24000
   },
   {
@@ -8065,6 +8113,14 @@
   },
   {
     "name": "nl-BE-Chirp3-HD-Vindemiatrix",
+    "language_codes": [
+      "nl-BE"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "nl-BE-Chirp3-HD-Zephyr",
     "language_codes": [
       "nl-BE"
     ],
@@ -10824,6 +10880,14 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "uk-UA-Chirp3-HD-Aoede",
+    "language_codes": [
+      "uk-UA"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "uk-UA-Chirp3-HD-Autonoe",
     "language_codes": [
       "uk-UA"
@@ -10837,6 +10901,14 @@
       "uk-UA"
     ],
     "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "uk-UA-Chirp3-HD-Charon",
+    "language_codes": [
+      "uk-UA"
+    ],
+    "ssml_gender": "MALE",
     "natural_sample_rate_hertz": 24000
   },
   {
@@ -10864,6 +10936,14 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "uk-UA-Chirp3-HD-Fenrir",
+    "language_codes": [
+      "uk-UA"
+    ],
+    "ssml_gender": "MALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "uk-UA-Chirp3-HD-Gacrux",
     "language_codes": [
       "uk-UA"
@@ -10880,11 +10960,43 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "uk-UA-Chirp3-HD-Kore",
+    "language_codes": [
+      "uk-UA"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "uk-UA-Chirp3-HD-Laomedeia",
     "language_codes": [
       "uk-UA"
     ],
     "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "uk-UA-Chirp3-HD-Leda",
+    "language_codes": [
+      "uk-UA"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "uk-UA-Chirp3-HD-Orus",
+    "language_codes": [
+      "uk-UA"
+    ],
+    "ssml_gender": "MALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "uk-UA-Chirp3-HD-Puck",
+    "language_codes": [
+      "uk-UA"
+    ],
+    "ssml_gender": "MALE",
     "natural_sample_rate_hertz": 24000
   },
   {
@@ -10945,6 +11057,14 @@
   },
   {
     "name": "uk-UA-Chirp3-HD-Vindemiatrix",
+    "language_codes": [
+      "uk-UA"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "uk-UA-Chirp3-HD-Zephyr",
     "language_codes": [
       "uk-UA"
     ],
@@ -11016,6 +11136,14 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "ur-IN-Chirp3-HD-Aoede",
+    "language_codes": [
+      "ur-IN"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "ur-IN-Chirp3-HD-Autonoe",
     "language_codes": [
       "ur-IN"
@@ -11029,6 +11157,14 @@
       "ur-IN"
     ],
     "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "ur-IN-Chirp3-HD-Charon",
+    "language_codes": [
+      "ur-IN"
+    ],
+    "ssml_gender": "MALE",
     "natural_sample_rate_hertz": 24000
   },
   {
@@ -11056,6 +11192,14 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "ur-IN-Chirp3-HD-Fenrir",
+    "language_codes": [
+      "ur-IN"
+    ],
+    "ssml_gender": "MALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "ur-IN-Chirp3-HD-Gacrux",
     "language_codes": [
       "ur-IN"
@@ -11072,11 +11216,43 @@
     "natural_sample_rate_hertz": 24000
   },
   {
+    "name": "ur-IN-Chirp3-HD-Kore",
+    "language_codes": [
+      "ur-IN"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
     "name": "ur-IN-Chirp3-HD-Laomedeia",
     "language_codes": [
       "ur-IN"
     ],
     "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "ur-IN-Chirp3-HD-Leda",
+    "language_codes": [
+      "ur-IN"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "ur-IN-Chirp3-HD-Orus",
+    "language_codes": [
+      "ur-IN"
+    ],
+    "ssml_gender": "MALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "ur-IN-Chirp3-HD-Puck",
+    "language_codes": [
+      "ur-IN"
+    ],
+    "ssml_gender": "MALE",
     "natural_sample_rate_hertz": 24000
   },
   {
@@ -11137,6 +11313,14 @@
   },
   {
     "name": "ur-IN-Chirp3-HD-Vindemiatrix",
+    "language_codes": [
+      "ur-IN"
+    ],
+    "ssml_gender": "FEMALE",
+    "natural_sample_rate_hertz": 24000
+  },
+  {
+    "name": "ur-IN-Chirp3-HD-Zephyr",
     "language_codes": [
       "ur-IN"
     ],

@@ -288,8 +288,7 @@ def create_language_table_csv(language_voice_mapping, language_mapping, google_v
         
         with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = [
-                'Name in the game', 'Language (in English)', 'In-game', 'ISO 639-3',
-                'Language', 'Voice type', 'Language code', 'Voice name', 'Gender'
+                'In-game', 'Name (transliteration)', 'Language', 'ISO 639-3', 'Voice name', 'Female'
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
@@ -299,42 +298,24 @@ def create_language_table_csv(language_voice_mapping, language_mapping, google_v
                 google_lang_code = voice_info['google_language_code']
                 iso_code = voice_info['iso_code']
                 
-                # Get language details from HTML - swap name and language to match expected format
+                # Get language details from HTML table
                 lang_details = language_details.get(in_game_code, {})
-                name_in_game = lang_details.get('language', '')  # This should be the native name like "Afrikaans (Suid-Afrika)"
-                language_english = lang_details.get('name', '')  # This should be the English name like "Afrikaans"
+                name_transliteration = lang_details.get('name', '')  # Name (transliteration)
+                language = lang_details.get('language', '')  # Language
                 
                 for voice_name, gender in voice_info['voices']:
                     voice_data = voice_lookup.get(voice_name, {})
                     
-                    # Determine voice type
-                    voice_type = "Standard"
-                    if 'Chirp3-HD' in voice_name:
-                        voice_type = "Chirp3-HD"
-                    elif 'Chirp-HD' in voice_name:
-                        voice_type = "Chirp-HD"
-                    elif 'Neural2' in voice_name:
-                        voice_type = "Neural2"
-                    elif 'WaveNet' in voice_name:
-                        voice_type = "WaveNet"
-                    
-                    # Create full language name like "Afrikaans (South Africa)"
-                    if google_lang_code == "af-ZA":
-                        language_full = "Afrikaans (South Africa)"
-                    else:
-                        # For other languages, try to build from language_english
-                        language_full = language_english if language_english else google_lang_code
+                    # Convert gender to boolean Female column
+                    is_female = voice_data.get('ssml_gender', 'FEMALE') == 'FEMALE'
                     
                     writer.writerow({
-                        'Name in the game': name_in_game,
-                        'Language (in English)': language_english,
                         'In-game': in_game_code,
+                        'Name (transliteration)': name_transliteration,
+                        'Language': language,
                         'ISO 639-3': iso_code,
-                        'Language': language_full,
-                        'Voice type': voice_type,
-                        'Language code': google_lang_code,
                         'Voice name': voice_name,
-                        'Gender': voice_data.get('ssml_gender', 'FEMALE')
+                        'Female': is_female
                     })
         
         print(f"Created language table CSV: {output_file}")
